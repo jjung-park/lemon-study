@@ -13,11 +13,11 @@ module.exports = {
     module:{
         rules:[{
             test:/\.vue$/,
-            loader:'vue-loader',
+            use:'vue-loader',
         }]
     },
     plugins:[
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
     ],
     output:{
         filename:'[name].js',
