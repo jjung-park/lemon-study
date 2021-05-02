@@ -1,2 +1,0 @@
-# lemon-study
-jsStudy
