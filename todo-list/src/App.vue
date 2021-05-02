@@ -1,27 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    
+    <TodoHeader/> <!--logo, time-->
+    <TodoTitle/> <!--인사말, task 개수-->
+    <TodoInput/> <!--task list-->
+    <TodoController/> <!---->
+    <TodoTaskList/> <!--task list-->
+    <TodoFooter/> <!---->
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Title from './components/Title.vue'
-import Input from './components/Input.vue'
-import Controller from './components/Controller.vue'
-import List from './components/List.vue'
-import Footer from './components/Footer.vue'
+import TodoHeader from './components/TodoHeader.vue';
+import TodoTitle from './components/TodoTitle.vue';
+import TodoInput from './components/TodoInput.vue';
+import TodoController from './components/TodoController.vue';
+import TodoTaskList from './components/TodoTaskList.vue';
+import TodoFooter from './components/TodoFooter.vue';
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Title,
-    Input,
-    Controller,
-    List,
-    Footer
+    TodoHeader,
+    TodoTitle,
+    TodoInput,
+    TodoController,
+    TodoTaskList,
+    TodoFooter
   }
 }
 </script>
