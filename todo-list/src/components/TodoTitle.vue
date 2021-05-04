@@ -21,7 +21,7 @@ export default {
 .title {
 }
 .title__message{
-    margin:3rem 0
+    margin:2rem 0 1rem;
 }
 .title__task{
     font-size:2rem;

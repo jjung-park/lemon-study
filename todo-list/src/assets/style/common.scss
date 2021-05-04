@@ -1,0 +1,35 @@
+$color-black:#212121;
+$color-gray:#b6b6b6;
+$color-white:#fff;
+body {
+  color: $color-black;
+  font-family: "Noto Sans", sans-serif;
+}
+.wrap {
+  width: 100%;
+  position: relative;
+  background-color: #eee;
+  height: 100vh;
+}
+.top {
+  padding: 1rem 2rem;
+  background-color: blueviolet;
+  color: #fff;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section {
+  padding: 1rem 2rem;
+}
+footer{
+  text-align: center;
+  color:$color-gray;
+  font-size: 14px;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  padding-bottom: 1rem;
+}
