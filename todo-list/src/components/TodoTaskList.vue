@@ -9,18 +9,25 @@
                     </label>
                 </div>
                 <div class="right_area">
-                    <button class="list__delete"></button>
+                    <button class="list__delete" @click.prevent="removeItem()"><v-icon name="x"></v-icon></button>
                     <p class="list__date">5/4</p>
                 </div>
+                
             </li>
         </ul>
     </div>
 </template>
 <script>
+
 export default {
     data(){
         return{
 
+        }
+    },
+    methods:{
+        removeItem:function () {
+            console.log('remove')
         }
     }
 }
@@ -43,7 +50,9 @@ export default {
     margin-right:0.5rem;
 }
 .list__delete{
-    /* background:url(../assets/images/icon/del.svg) 0 0 no-repeat */
+   width: 24px;
+   padding:0 0.3rem;
+   color:#bbb;
 
 }
 .list__date{

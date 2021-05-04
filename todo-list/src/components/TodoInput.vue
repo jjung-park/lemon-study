@@ -1,7 +1,7 @@
 <template>
     <div class="add">
         <input type="text" class="add__input" placeholder="enter your task" v-model="newTodoItem" v-on:keyup.enter="addTodoItem">
-        <button class="add__btn">add</button>
+        <button class="add__btn"><v-icon name="arrow-right"></v-icon></button>
     </div>
 </template>
 <script>
@@ -32,7 +32,7 @@ export default {
 </script>
 <style>
 .add{
-    margin:2rem 0;
+    margin:2rem 0 1rem;
      position: relative;    
 }
 .add__input{
@@ -54,9 +54,10 @@ export default {
     height:40px;
     background-color:#fff;
     position: absolute;
-    right:0;
     top:50%;
     transform: translateY(-50%);
-    right:5px
+    right:5px;
+    color:#636363;
+    padding:0.5rem;
 }
 </style>

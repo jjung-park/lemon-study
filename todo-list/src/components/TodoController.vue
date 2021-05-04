@@ -27,13 +27,31 @@ export default {
     justify-content: space-between;
     align-items:center;
 }
-
+.select{
+    position: relative;
+}
+.select::after{
+    content:'▼';
+    display: block;
+    width:24px;
+    height:24px;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right:0.5rem;
+    text-align: center;
+    color:#636363;
+    font-size: 0.768rem;
+    line-height: 24px;
+}
 .selectbox{
     border-radius: 3px;
     padding:0.5rem 1rem;
     border:1px solid #ddd;
     background:#fff;
+    
 }
+
 .clear{
     color:#aaa;
 }
