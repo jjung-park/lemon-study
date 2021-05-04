@@ -1,0 +1,23 @@
+body {
+  color: #212121;
+  font-family: "Noto Sans", sans-serif;
+}
+.wrap {
+  width: 100%;
+  position: relative;
+  background-color: #eee;
+  height: 100vh;
+}
+.top {
+  padding: 0.5rem 2rem;
+  background-color: blueviolet;
+  color: #fff;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section {
+  padding: 1rem 2rem;
+}

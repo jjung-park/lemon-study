@@ -8,7 +8,7 @@ module.exports = {
         extensions:['.js','.vue'],
     },
     entry:{
-        app:path.join(__dirname, 'main.js') //app : 하나로 합쳐질 파일의 이름
+        app:path.join(__dirname, 'main.js') 
     },
     module:{
         rules:[{

@@ -9,8 +9,11 @@
             시도: {{tries.length}}
         </div>
         <ul>
-            <li v-for="item in tries">{{item}}</li>
+            <li v-for="item in tries" :key="item">{{item}}</li>
         </ul>
+        
+        
+        
     </div>
 </template>
 

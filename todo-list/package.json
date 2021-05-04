@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "reset-css-complete": "^2.0.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -19,9 +20,14 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^11.0.1",
-    "vue-template-compiler": "^2.6.11"
+    "node-sass": "^4.14.1",
+    "notosans-fontface": "^1.2.2",
+    "postcss": "^7.0.35",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.32.12",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.46.0"
   },
   "eslintConfig": {
     "root": true,

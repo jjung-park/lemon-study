@@ -1,14 +1,15 @@
 module.exports = {
-    publicPath: '/todo-list/',
-    outputDir: 'docs',
-    css:{
-        loaderOptions:{
-            scss:{
-                prependDate:`
-                    @import "@/assets/style/_mixins.scss";
-                    @import "@/assets/style/_variables.scss"
-                `
-            }
+    css: {
+      sourceMap: true,
+      loaderOptions: {
+        scss: {
+          prependData: `
+            @import "~@/assets/css/_variables.scss";
+            @import "~@/assets/css/_mixin.scss";
+            @import "~@/assets/css/_mediaQuery.scss";
+          `
         }
-    }
-}
+      }
+    },
+    publicPath: '/todo-list'
+  }

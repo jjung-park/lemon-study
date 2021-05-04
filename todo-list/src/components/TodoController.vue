@@ -1,7 +1,6 @@
 <template>
     <div class="controller">
         <div class="select">
-            <label for="order">order</label>
             <select name="order" id="order" class="selectbox">
                 <option value="data-acs">date ascending</option>
                 <option value="data-decs">date decscending</option>
@@ -23,5 +22,19 @@ export default {
 }
 </script>
 <style>
+.controller{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
 
+.selectbox{
+    border-radius: 3px;
+    padding:0.5rem 1rem;
+    border:1px solid #ddd;
+    background:#fff;
+}
+.clear{
+    color:#aaa;
+}
 </style>

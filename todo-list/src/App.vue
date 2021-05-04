@@ -1,11 +1,17 @@
 <template>
   <div id="app">
-    <TodoHeader/> <!--logo, time-->
-    <TodoTitle/> <!--인사말, task 개수-->
-    <TodoInput/> <!--task list-->
-    <TodoController/> <!---->
-    <TodoTaskList/> <!--task list-->
-    <TodoFooter/> <!---->
+    <div class="wrap">
+      <div class="top">
+        <TodoHeader/> <!--logo, time-->
+        <TodoTitle/> <!--인사말, task 개수-->
+        <TodoInput/> <!--task list-->
+      </div>
+      <section>
+        <TodoController/> <!---->
+        <TodoTaskList/> <!--task list-->        
+      </section>      
+      <TodoFooter/> <!---->
+    </div>
   </div>
 </template>
 
@@ -31,5 +37,6 @@ export default {
 </script>
 
 <style>
-
+    @import '~reset-css-complete/reset.css';
+    @import './assets/style/common.css';
 </style>
