@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="wrap">
-      <div class="top">
+      <div class="nav">
         <TodoHeader/> <!--logo, time-->
         <TodoTitle/> <!--인사말, task 개수-->
         <TodoInput/> <!--task list-->

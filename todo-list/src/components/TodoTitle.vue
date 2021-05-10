@@ -18,10 +18,10 @@ export default {
 }
 </script>
 <style>
-.title {
-}
+
 .title__message{
     margin:2rem 0 1rem;
+    font-size:1.2rem
 }
 .title__task{
     font-size:2rem;

@@ -1,10 +1,10 @@
 <template>
     <div>
         <ul class="list">
-            <li class="list__item">
+            <li class="list__item" v-for="listItem in todoItems" :key="listItem">
                 <div class="check_area">
-                    <input type="checkbox" id="list-item-1">
-                    <label for="list-item-1">
+                    <input type="checkbox" :id="listItem.item">
+                    <label :for="listItem.item">
                         <p class="list__text">study speach</p>
                     </label>
                 </div>
@@ -22,7 +22,16 @@
 export default {
     data(){
         return{
-
+            todoItems:[],
+        }
+    },
+    created(){
+        if(localStorage){
+            for(let i = 0; i < localStorage.length; i++){
+                if(localStorage.key(i) !== "loglevel:webpack-dev-server"){
+                    this.todoItems.push(localStorage.getItem(localStorage.key(i)))
+                }
+            }
         }
     },
     methods:{
