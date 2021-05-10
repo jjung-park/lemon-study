@@ -28,15 +28,15 @@ export default {
     created(){
         if(localStorage){
             for(let i = 0; i < localStorage.length; i++){
-                if(localStorage.key(i) !== "loglevel:webpack-dev-server"){
+                if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
                     this.todoItems.push(localStorage.getItem(localStorage.key(i)))
                 }
             }
         }
     },
     methods:{
-        removeItem:function () {
-            console.log('remove')
+        removeItem:function(){
+            this.removeItem(this.newTodoItem)
         }
     }
 }

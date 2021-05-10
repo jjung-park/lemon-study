@@ -1,11 +1,19 @@
 <template>
     <div class="add">
-        <input type="text" class="add__input" placeholder="enter your task" v-model="newTodoItem" v-on:keyup.enter="addTodoItem">
-        <button class="add__btn"><v-icon name="arrow-right"></v-icon></button>
+        <input 
+            type="text" 
+            class="add__input" 
+            placeholder="enter your task" 
+            v-model="newTodoItem" 
+            @keyup.enter="addTodoItem"
+            >
+        <button class="add__btn" @click="addTodoItem"><v-icon name="arrow-right"></v-icon></button>
     </div>
 </template>
 <script>
-export default {
+import getDate from "../components/common/getDate.js"
+
+export default {    
     data(){
         return{
             newTodoItem: ""
@@ -13,20 +21,24 @@ export default {
     },
     methods:{
         addTodoItem:function(){
+            //값이 있을때만 실행
             if(this.newTodoItem !== ''){
-                var value = {
-                    item: this.newTodoItem,
-                    date: `${new Date().getMonth() + 1}/${new Date().getDate()}`,
-                    completed: false
-                };
-                localStorage.setItem(this.newTodoItem, JSON.stringify(value));
-                this.clearInput();
-            }
+                let value = {
+                    item : this.newTodoItem,
+                    data: `${getDate().date}/${getDate().week}`,
+                    tiem:getDate().time,
+                }
+                localStorage.setItem(this.newTodoItem,value);
+                // localStorage.setItem(this.newTodoItem,JSON.stringify(value));
+                //실행 후 input은 리셋
+                this.clearInput()
+            }       
             
         },
-        clearInput() {
-            this.newTodoItem = "";
-        }
+        clearInput:function(){
+            this.newTodoItem = ''
+        },
+        
     }
 }
 </script>
