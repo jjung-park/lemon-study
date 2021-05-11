@@ -28,8 +28,8 @@ export default {
                     data: `${getDate().date}/${getDate().week}`,
                     tiem:getDate().time,
                 }
-                localStorage.setItem(this.newTodoItem,value);
-                // localStorage.setItem(this.newTodoItem,JSON.stringify(value));
+                // localStorage.setItem(this.newTodoItem,value);
+                localStorage.setItem(this.newTodoItem,JSON.stringify(value));
                 //실행 후 input은 리셋
                 this.clearInput()
             }       
