@@ -11,7 +11,6 @@
     </div>
 </template>
 <script>
-import getDate from "../components/common/getDate.js"
 
 export default {    
     data(){
@@ -23,14 +22,7 @@ export default {
         addTodoItem:function(){
             //값이 있을때만 실행
             if(this.newTodoItem !== ''){
-                let value = {
-                    item : this.newTodoItem,
-                    data: `${getDate().date}/${getDate().week}`,
-                    tiem:getDate().time,
-                }
-                // localStorage.setItem(this.newTodoItem,value);
-                localStorage.setItem(this.newTodoItem,JSON.stringify(value));
-                //실행 후 input은 리셋
+                this.$emit("addItem", this.newTodoItem)
                 this.clearInput()
             }       
             

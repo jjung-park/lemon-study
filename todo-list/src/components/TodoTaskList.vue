@@ -1,15 +1,21 @@
 <template>
     <div>
         <ul class="list">
-            <li class="list__item" v-for="listItem in todoItems" :key="listItem">
+            <li class="list__item" v-for="(listItem, index) in propsData" :key="listItem.item">
                 <div class="check_area">
-                    <input type="checkbox" :id="listItem.item">
+                    <input 
+                        type="checkbox" 
+                        :id="listItem.item"
+                        :checked="listItem.completed == true"
+                        @change="toggleComplete(listItem)"
+                    />
                     <label :for="listItem.item">
-                        <p class="list__text">study speach</p>
+                        <p class="list__text">{{listItem.item}}</p>
                     </label>
+                    <p class="list__date">{{listItem.date}}</p>
                 </div>
                 <div class="right_area">
-                    <button class="list__delete" @click.prevent="removeItem()"><v-icon name="x"></v-icon></button>
+                    <button class="list__delete" @click="removeItem(listItem, index)"><v-icon name="x"></v-icon></button>
                     <p class="list__date">5/4</p>
                 </div>
                 
@@ -20,24 +26,17 @@
 <script>
 
 export default {
-    data(){
-        return{
-            todoItems:[],
-        }
-    },
-    created(){
-        if(localStorage){
-            for(let i = 0; i < localStorage.length; i++){
-                if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-                    this.todoItems.push(localStorage.getItem(localStorage.key(i)))
-                }
-            }
-        }
-    },
+    props:["propsData"],
+    
     methods:{
-        removeItem:function(){
-            this.removeItem(this.newTodoItem)
-        }
+        toggleComplete:function(listItem){
+            this.$emit("toggleItem", listItem)
+        },
+        removeItem:function(listItem, index){
+            this.$emit("removeItem", listItem, index)
+            
+        },
+      
     }
 }
 </script>

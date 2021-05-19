@@ -9,7 +9,7 @@
               
             </select>
         </div>
-        <button class="clear">clear all</button>
+        <button class="clear" @click="clearAll()">clear all</button>
     </div>
 </template>
 <script>
@@ -17,6 +17,11 @@ export default {
     data(){
         return{
 
+        }
+    },
+    methods:{
+        clearAll:function () {
+            this.$emit("clearAll")
         }
     }
 }
