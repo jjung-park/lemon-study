@@ -16,7 +16,7 @@
                 </div>
                 <div class="right_area">
                     <button class="list__delete" @click="removeItem(listItem, index)"><v-icon name="x"></v-icon></button>
-                    <p class="list__date">5/4</p>
+                    <p class="list__date">{{timestamp}}</p>
                 </div>
                 
             </li>
@@ -24,10 +24,19 @@
     </div>
 </template>
 <script>
+import getDate from "../components/common/getDate.js"
 
 export default {
     props:["propsData"],
-    
+    data(){
+        return{
+            timestamp:'',
+        }
+    },
+    created(){
+        
+        this.timestamp = `${getDate().month}/${getDate().date}`
+    },
     methods:{
         toggleComplete:function(listItem){
             this.$emit("toggleItem", listItem)
@@ -66,6 +75,9 @@ export default {
 .list__date{
     font-size: 14px;
     color:#b0b0b0;
+}
+.right_area{
+    text-align:right
 }
 
 </style>
