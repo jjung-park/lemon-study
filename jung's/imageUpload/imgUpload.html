@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .upload {
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+            }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <input type="file" class="upload-input" accept="image/*" required multiple style="display: none;">
+            <div class="upload">클릭!</div>
+        </div>
+        <div class="preview">
+            <p></p>
+        </div>
+    </form>
+
+    <script>
+        const upload = document.querySelector('.upload')
+        const inputFile = document.querySelector('input');
+        const preview = document.querySelector('.preview');
+        
+        upload.addEventListener('click', () => inputFile.click());
+        inputFile.addEventListener('change', showImgFile);
+
+        function showImgFile(params) {
+            const seletedFile = inputFile.files;
+            const list = document.createElement('ul');
+            preview.appendChild(list);
+
+            for(const file of seletedFile){
+                const listItem = document.createElement('li');
+                
+                const msg = document.createElement('div');
+                msg.textContent = `파일명 : ${file.name}`;
+                listItem.appendChild(msg);
+
+                list.appendChild(listItem)
+            }
+        }
+    </script>
+</body>
+</html>
