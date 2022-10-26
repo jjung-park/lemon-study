@@ -7,20 +7,31 @@
     <title>Document</title>
     <style>
         .upload {
-            width: 200px;
-            height: 200px;
+            width: 100%;
             background-color: antiquewhite;
-            }
+            text-align: center;
+            padding:12px;
+            cursor: pointer;
+            margin-bottom:10px;
+        }
+        .preview{
+            width:150px;
+            height:150px;
+            overflow: hidden;
+        }
+        .preview img{
+            width:100%;
+        }
     </style>
 </head>
 <body>
     <form>
         <div>
             <input type="file" class="upload-input" accept="image/*" required multiple style="display: none;">
-            <div class="upload">클릭!</div>
+            <div class="upload">클릭하거나 드롭다운으로 이미지를 첨부해보세요</div>
         </div>
         <div class="preview">
-            <p></p>
+            <img id="previewImg" width='150px' >
         </div>
     </form>
 
@@ -33,19 +44,26 @@
         inputFile.addEventListener('change', showImgFile);
 
         function showImgFile(params) {
-            const seletedFile = inputFile.files;
-            const list = document.createElement('ul');
-            preview.appendChild(list);
+            const seletedFile = [...inputFile.files];
+            const fileReader = new FileReader;
+            fileReader.readAsDataURL(seletedFile[0])
+            fileReader.onload = function () {
+                document.getElementById('previewImg').src = fileReader.result;
 
-            for(const file of seletedFile){
-                const listItem = document.createElement('li');
-                
-                const msg = document.createElement('div');
-                msg.textContent = `파일명 : ${file.name}`;
-                listItem.appendChild(msg);
-
-                list.appendChild(listItem)
             }
+
+            // const list = document.createElement('ul');
+            // preview.appendChild(list);
+
+            // for(const file of seletedFile){
+            //     const listItem = document.createElement('li');
+                
+            //     const msg = document.createElement('div');
+            //     msg.textContent = `파일명 : ${file.name}`;
+            //     listItem.appendChild(msg);
+
+            //     list.appendChild(listItem)
+            // }
         }
     </script>
 </body>
