@@ -4,7 +4,7 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 # CodeStream ignored files
-/../../node-bird\.idea/codestream.xml
+/../../lemon-study\.idea/codestream.xml
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
