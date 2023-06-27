@@ -1,11 +1,7 @@
-import Button from './Button'
+import {useState, useEffect} from 'react';
+
 function App() {
-  return (
-    <div className="App">
-      <h1>welcom Back!</h1>
-      <Button text={'버튼입니당'}/>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
