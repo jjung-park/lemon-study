@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-function App() {
+function Todo() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const onchange = (event) => setTodo(event.target.value);
@@ -29,4 +29,4 @@ function App() {
   );
 }
 
-export default App;
+export default Todo;
