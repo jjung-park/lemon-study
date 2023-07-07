@@ -5,14 +5,13 @@ function Coin() {
     const [coins, setCoins] = useState([]); //기본값이 없으면 coins이 undefiend가 됨
     useEffect(() => {
       fetch('https://api.coinpaprika.com/v1/tickers')
-      .then((response) => response.json()
+      .then((response) => response.json())
       .then((json) => {
         setCoins(json);
         setLoading(false);
         console.log(json)
 
-      })
-      );
+      });
     }, []);
     
 
