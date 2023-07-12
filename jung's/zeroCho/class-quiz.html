@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>이름</label>
+    <input type="text" id="name">
+    <label>나이</label>
+    <input type="text" id="age">
+    <button id="view">출력</button>
+    <div class="nameValue"></div>
+    <div class="ageValue"></div>
+    <script>
+        const $name = document.querySelector('#name');
+        const $age = document.querySelector('#age');
+        const nameValue = document.querySelector('.nameValue');
+        const ageValue = document.querySelector('.ageValue');
+        const $view = document.querySelector('#view');
+
+        class Human {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            sayName() {
+                console.log(this.name)
+            }
+            sayAge() {
+                console.log(this.age)
+            }
+        };
+
+        const human = new Human('jung', 33);
+        human.sayName();
+        human.sayAge();
+
+        //Human 클래스를 상속하여 구체적인 사람 클래스 만들기
+
+        class Programmer extends Human {
+            constructor(name, age, position) {
+                super(name, age);
+                this.position = position;
+            }
+            writeCode() {
+                console.log(this.position);
+            }
+        };
+
+        const programmer = new Programmer('jung', 33, 'frontend');
+        programmer.writeCode();
+        programmer.sayName();
+        programmer.sayAge();
+
+    </script>
+</body>
+
+</html>
