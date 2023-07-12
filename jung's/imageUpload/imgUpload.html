@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .upload {
+            width: 100%;
+            background-color: antiquewhite;
+            text-align: center;
+            padding:12px;
+            cursor: pointer;
+            margin-bottom:10px;
+        }
+        .preview{
+            width:150px;
+            height:150px;
+            overflow: hidden;
+        }
+        .preview img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <input type="file" class="upload-input" accept="image/*" required multiple style="display: none;">
+            <div class="upload">클릭하거나 드롭다운으로 이미지를 첨부해보세요</div>
+        </div>
+        <div class="preview">
+            <img id="previewImg" width='150px' >
+        </div>
+    </form>
+
+    <script>
+        const upload = document.querySelector('.upload')
+        const inputFile = document.querySelector('input');
+        const preview = document.querySelector('.preview');
+        
+        upload.addEventListener('click', () => inputFile.click());
+        inputFile.addEventListener('change', showImgFile);
+
+        function showImgFile(params) {
+            const seletedFile = [...inputFile.files];
+            const fileReader = new FileReader;
+            fileReader.readAsDataURL(seletedFile[0])
+            fileReader.onload = function () {
+                document.getElementById('previewImg').src = fileReader.result;
+
+            }
+
+            // const list = document.createElement('ul');
+            // preview.appendChild(list);
+
+            // for(const file of seletedFile){
+            //     const listItem = document.createElement('li');
+                
+            //     const msg = document.createElement('div');
+            //     msg.textContent = `파일명 : ${file.name}`;
+            //     listItem.appendChild(msg);
+
+            //     list.appendChild(listItem)
+            // }
+        }
+    </script>
+</body>
+</html>
