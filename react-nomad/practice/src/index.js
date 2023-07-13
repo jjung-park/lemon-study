@@ -5,8 +5,8 @@ import './style.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <App />
 );
+
+//화면 갱신이 안되면 <React.StrictMode> 삭제하기
 
