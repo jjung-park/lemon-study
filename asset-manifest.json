@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jjung-park/lemonc-study/react-nomad/practice/static/css/main.b95a5e6c.css",
+    "main.js": "/jjung-park/lemonc-study/react-nomad/practice/static/js/main.7c0c0f5b.js",
+    "index.html": "/jjung-park/lemonc-study/react-nomad/practice/index.html",
+    "main.b95a5e6c.css.map": "/jjung-park/lemonc-study/react-nomad/practice/static/css/main.b95a5e6c.css.map",
+    "main.7c0c0f5b.js.map": "/jjung-park/lemonc-study/react-nomad/practice/static/js/main.7c0c0f5b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b95a5e6c.css",
+    "static/js/main.7c0c0f5b.js"
+  ]
+}
