@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {authService} from "../fbase";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import React, { useState } from 'react';
+import { authService } from "../fbase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const Auth = () => {
     const [email, setEmail] = useState("");
@@ -9,11 +9,11 @@ const Auth = () => {
     const [error, setError] = useState('');
     const onChange = (event) => {
         const {
-            target: {name, value},
+            target: { name, value },
         } = event;
-        if(name === "email"){
+        if (name === "email") {
             setEmail(value)
-        }else if(name === "password"){
+        } else if (name === "password") {
             setPassword(value)
         }
     }
@@ -33,19 +33,29 @@ const Auth = () => {
         }
     };
     const toggleAccount = () => setNewAccount((prev) => !prev);
+    const onSocialClick = async (event) => {
+        const { target: { name } } = event;
+        let provider;
+        if (name === 'google') {
+            provider = new GoogleAuthProvider();
+        } else if (name === 'github') {
+            provider = new GithubAuthProvider();
+        }
+        await signInWithPopup(authService, provider)
+    }
     return (
         <div>
             <form onSubmit={onSubmit}>
                 <input name="email" type="email" placeholder="Email" value={email} onChange={onChange} required />
                 {error}
                 <input name="password" type="password" placeholder="Password" value={password} onChange={onChange} required />
-                <input type="submit" value={newAccount ? '계정 생성':'로그인'} />
+                <input type="submit" value={newAccount ? '계정 생성' : '로그인'} />
             </form>
             <span onClick={toggleAccount}>{newAccount ? "sign in" : "create Account"}</span>
 
             <div>
-                <button>구글로 로그인</button>
-                <button>gitHub로 로그인</button>
+                <button name="google" onClick={onSocialClick}>구글로 로그인</button>
+                <button name="github" onClick={onSocialClick}>gitHub로 로그인</button>
             </div>
         </div>
     );
