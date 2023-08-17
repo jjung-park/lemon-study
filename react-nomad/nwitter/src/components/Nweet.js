@@ -22,16 +22,20 @@ const Nweet = ({nweetObj, isOwner}) => {
         await updateDoc(getNweetId, {
             text:newNweet
         });
+        setEditing(false)
     }
     return (
         <div>
             {editing ? (
                 <>
+                {isOwner && <>
                     <form onSubmit={onSubmit}>
                         <input type="text" onChange={onChange} placeholder="게시글을 수정하세요" value={newNweet} required/>
-                        <input type="submit" value="update" onClick={toggleEditing}/>
+                        <input type="submit" value="update"/>
                     </form>
                     <button onClick={toggleEditing}>cancel</button>
+                </>
+                }
                 </>
             ) : (
                 <>
