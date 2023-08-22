@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {dbService, storageService} from "../fbase";
-import {collection, addDoc, onSnapshot, query, orderBy,} from "firebase/firestore";
+import React, { useEffect, useState } from 'react';
+import { dbService, storageService } from "../fbase";
+import { collection, addDoc, onSnapshot, query, orderBy, } from "firebase/firestore";
 import Nweet from "../components/Nweet";
-import {ref, uploadString, getDownloadURL} from "firebase/storage";
-import {v4} from "uuid";
+import { ref, uploadString, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
 
-const Home = ({userObj}) => {
+const Home = ({ userObj }) => {
     const [nweet, setNweet] = useState('');
     const [nweets, setNweets] = useState([]);
-    const [attachment, setAttachment] = useState();
+    const [attachment, setAttachment] = useState("");
     //구식
     /*const getNweets = async () => {
         const dbNweets = await getDocs(collection(dbService, 'nweets'));
@@ -56,15 +56,15 @@ const Home = ({userObj}) => {
     };
 
     const onChange = (event) => {
-        const {target: {value}} = event;
+        const { target: { value } } = event;
         setNweet(value)
     };
     const onFileChange = (event) => {
-        const {target: {files}} = event;
+        const { target: { files } } = event;
         const theFile = files[0];
         const reader = new FileReader();
         reader.onload = (finishedEvent) => {
-            const {currentTarget: {result}} = finishedEvent;
+            const { currentTarget: { result } } = finishedEvent;
             setAttachment(result);
         }
         reader.readAsDataURL(theFile)
@@ -73,19 +73,19 @@ const Home = ({userObj}) => {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <input type="text" onChange={onChange} value={nweet} placeholder="what's our mind" maxLength={120}/>
-                <input type="file" accept="image/*" onChange={onFileChange}/>
-                <input type="submit" value="Nweet"/>
+                <input type="text" onChange={onChange} value={nweet} placeholder="what's our mind" maxLength={120} />
+                <input type="file" accept="image/*" onChange={onFileChange} />
+                <input type="submit" value="Nweet" />
                 {attachment &&
                     <div>
-                        <img src={attachment} width="50px" height="50px"/>
+                        <img src={attachment} width="50px" height="50px" />
                         <button onClick={onClearattachment}>Clear</button>
                     </div>
                 }
             </form>
             <div>
                 {nweets.map((nweet) => (
-                    <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid}/>
+                    <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid} />
                 ))}
             </div>
         </div>
