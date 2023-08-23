@@ -1,13 +1,10 @@
 {
   "files": {
-    "main.css": "/lemon-study/react-nomad/practice/static/css/main.b95a5e6c.css",
-    "main.js": "/lemon-study/react-nomad/practice/static/js/main.7c0c0f5b.js",
-    "index.html": "/lemon-study/react-nomad/practice/index.html",
-    "main.b95a5e6c.css.map": "/lemon-study/react-nomad/practice/static/css/main.b95a5e6c.css.map",
-    "main.7c0c0f5b.js.map": "/lemon-study/react-nomad/practice/static/js/main.7c0c0f5b.js.map"
+    "main.js": "/react-nomad/nwitter/static/js/main.6f03cad2.js",
+    "index.html": "/react-nomad/nwitter/index.html",
+    "main.6f03cad2.js.map": "/react-nomad/nwitter/static/js/main.6f03cad2.js.map"
   },
   "entrypoints": [
-    "static/css/main.b95a5e6c.css",
-    "static/js/main.7c0c0f5b.js"
+    "static/js/main.6f03cad2.js"
   ]
 }
