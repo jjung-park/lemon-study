@@ -1,53 +1,54 @@
-import { authService } from 'fbase';
+import { authService, dbService } from 'fbase';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { dbService } from "../fbase";
 import { collection, getDocs, query, where } from "@firebase/firestore";
 import { updateProfile } from "@firebase/auth";
 
-export default ({ userObj, refreshUser }) => {
+export default ({refreshUser, userObj}) => {
     const history = useHistory();
-    const [newDisplayNm, setNewDisplayNm] = useState(userObj.displayName);
+    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName ?? "USER");
     const onLogOutClick = () => {
         authService.signOut();
         history.push('/')
-    };
-
+    }
     const getMyNweets = async () => {
-        const nweets = query(
+        const q = query(
             collection(dbService, "nweets"),
             where("creatorId", "==", userObj.uid)
         );
-        const querySnapshot = await getDocs(nweets);
+        const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
         });
     };
-    useEffect(() => {
-        getMyNweets()
-    }, []);
-
-    const onChange = (event) => {
-        const { target: { value } } = event;
-        setNewDisplayNm(value)
-    };
+    const onchange = (event) => {
+        const {
+            target: {value},
+        } = event;
+        setNewDisplayName(value);
+    }
     const onSubmit = async (event) => {
         event.preventDefault();
-        if (userObj.displayName !== newDisplayNm) {
-            await updateProfile(authService.currentUser, {
-                displayName: newDisplayNm
-            })
+        // if(userObj.displayName !== newDisplayName){
+        //     await userObj.updateProfile({
+        //         displayName: newDisplayName,
+        //     })
+        // }
+        if(userObj.displayName !== newDisplayName){
+            await updateProfile(authService.currentUser, { displayName: newDisplayName });
             refreshUser();
         }
     }
-
+    useEffect(() => {
+        getMyNweets();
+    }, [])
     return (
         <>
             <form onSubmit={onSubmit}>
-                <input type="text" placeholder="display name" value={newDisplayNm} onChange={onChange} />
-                <input type="submit" value="프로필 수정" />
+                <input type="text" placeholder="Display name" onChange={onchange} value={newDisplayName}/>
+                <input type="submit" value="Update Profile" />
             </form>
             <button onClick={onLogOutClick}>로그아웃</button>
         </>
-    )
-}
+    );
+};
